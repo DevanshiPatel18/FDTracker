@@ -18,14 +18,14 @@ export class AuthService{
 
   createUser(name: string, email: string, password: string){
     const authData: AuthData = { name: name, email: email, password: password};
-    this.http.post('http://localhost:3000/api/user/signup', authData)
+    this.http.post('/api/user/signup', authData)
     .subscribe(response => {
       console.log(response);
     });
   }
 
   getUser(id: string){
-    return this.http.get('http://localhost:3000/api/user/'+id);
+    return this.http.get('/api/user/'+id);
   }
 
   getToken(){
@@ -34,7 +34,7 @@ export class AuthService{
 
   loginUser(email: string, password: string){
     const authData = {email:email, password: password};
-    this.http.post<{token: string, expiresIn: number, customerId: string, emailId: string}>('http://localhost:3000/api/user/login',authData)
+    this.http.post<{token: string, expiresIn: number, customerId: string, emailId: string}>('/api/user/login',authData)
     .subscribe(response => {
       console.log(response);
       const token = response.token;

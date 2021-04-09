@@ -17,7 +17,7 @@ export class DepositService{
 
   getDeposits(pageSize: number, currentPage: number){
     const queryParams = `?pageSize=${pageSize}&currentPage=${currentPage}&dashboard=true`;
-    this.http.get<{ message: string, deposits: any, maxDeposits: number}>('http://localhost:3000/api/deposits'+queryParams)
+    this.http.get<{ message: string, deposits: any, maxDeposits: number}>('/api/deposits'+queryParams)
     .pipe(
       map(depositData => {
         console.log(depositData);
@@ -51,14 +51,14 @@ export class DepositService{
   }
 
   addDeposit(deposit: Deposit){
-    this.http.post<{message: string, id : string}>('http://localhost:3000/api/deposits',deposit)
+    this.http.post<{message: string, id : string}>('/api/deposits',deposit)
     .subscribe((responseData) => {
       this.router.navigate(['/']);
     });
   }
 
   getDeposit( id: string){
-    return this.http.get<{ message: string, deposit : Deposit, customerId: string}>('http://localhost:3000/api/deposits/'+id);
+    return this.http.get<{ message: string, deposit : Deposit, customerId: string}>('/api/deposits/'+id);
   }
 
 
@@ -68,7 +68,7 @@ export class DepositService{
 
   deletePost(depositId : string){
     console.log("**"+depositId);
-     return this.http.delete('http://localhost:3000/api/deposits/'+depositId)
+     return this.http.delete('/api/deposits/'+depositId)
 
   }
 
@@ -84,7 +84,7 @@ export class DepositService{
       //renewalDate: deposit.renewalDate
     //};
     console.log(deposit);
-    this.http.put('http://localhost:3000/api/deposits/'+deposit.id,deposit)
+    this.http.put('/api/deposits/'+deposit.id,deposit)
     .subscribe(response => {
       this.router.navigate(['/']);
     });

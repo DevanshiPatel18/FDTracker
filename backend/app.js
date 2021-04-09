@@ -25,6 +25,7 @@ app.use((req,res,next) => {
   next();
 })
 
+app.use(express.static(process.cwd() + "/dist/FDTracker"))
 
 app.use('/api/deposits',depositRoutes);
 app.use('/api/user',userRoutes);
