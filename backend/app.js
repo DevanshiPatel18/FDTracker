@@ -30,8 +30,8 @@ app.use(express.static(process.cwd() + "/dist/FDTracker"))
 app.use('/api/deposits',depositRoutes);
 app.use('/api/user',userRoutes);
 
-app.get('/', (req,res) => {
-  res.sendFile(process.cwd()+"/dist/FDTracker/index.html")
+app.get('*', (req,res) => {
+  res.sendFile(process.cwd()+"../dist/FDTracker/index.html")
 });
 
 cron.schedule('0 0 18 * * SUN,WED', () => {
