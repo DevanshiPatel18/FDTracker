@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const depositRoutes = require('./routes/deposits');
 const userRoutes = require('./routes/users');
 const cron = require('node-cron');
+const path = require('path');
 
 const app = express();
 
@@ -25,13 +26,15 @@ app.use((req,res,next) => {
   next();
 })
 
-//app.use(express.static(process.cwd() + "/dist/FDTracker"))
+app.use(express.static(process.cwd() + "/dist/FDTracker"))
 
 app.use('/api/deposits',depositRoutes);
 app.use('/api/user',userRoutes);
+console.log(__dirname);
 
 app.get('*', (req,res) => {
-  res.sendFile("../dist/FDTracker/index.html")
+  const pathFile = path.join(__dirname,"../dist" ,"FDTracker");
+  res.sendFile(pathFile + "/index.html");
 });
 
 cron.schedule('0 0 18 * * SUN,WED', () => {
