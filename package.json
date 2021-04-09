@@ -7,8 +7,7 @@
     "start": "nodemon server.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "npm start"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
