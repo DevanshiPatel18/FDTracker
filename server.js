@@ -43,6 +43,8 @@ const port = normalizePort(process.env.PORT || '3000');
 
 const server = http.createServer(app);
 
+app.use(__dirname + '/dist/FDTracker');
+
 server.on('error', onError);
 server.on('listening', onListening);
 server.listen(port);
