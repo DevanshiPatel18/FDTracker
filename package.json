@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "build": "ng build --prod",
+    "build": "npm instal; && ng build --prod",
     "start": "nodemon server.js",
     "test": "ng test",
     "lint": "ng lint",
