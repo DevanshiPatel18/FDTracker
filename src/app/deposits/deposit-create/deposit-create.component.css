@@ -1,0 +1,38 @@
+.addDeposit{
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+mat-card{
+  width: 80%;
+  margin: auto;
+  max-width: 800px;
+}
+form{
+  padding: 5%;
+}
+.form-group{
+  display: inline-block;
+  width: 50%;
+}
+mat-form-field{
+  display: flex;
+  justify-content: center;
+}
+input{
+  width: 100%;
+}
+.button{
+  margin: 1%;
+ display: flex;
+ justify-content: center;
+}
+.spinner{
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 50%;
+  right: 50%;
+}
+

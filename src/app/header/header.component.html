@@ -1,0 +1,22 @@
+<mat-toolbar color = "primary">
+  <span>
+    <a routerLink= "/dashboard">
+      Deposit tracker
+    </a>
+  </span>
+  <span class = "spacer"></span>
+  <ul>
+    <li *ngIf = 'userIsAuthenticated'>
+      <a mat-button routerLinkActive = "mat-accent" routerLink = '/create'>New Deposit</a>
+    </li>
+    <li *ngIf = '!userIsAuthenticated'>
+      <a mat-button routerLink = '' routerLinkActive = 'mat-accent'>Login</a>
+    </li>
+    <li *ngIf = '!userIsAuthenticated'>
+      <a mat-button routerLink = '/signup' routerLinkActive = 'mat-accent'>Sign Up</a>
+    </li>
+    <li *ngIf = 'userIsAuthenticated'>
+      <button mat-button routerLink = '' (click) = 'onLogOut()'>Log Out</button>
+    </li>
+  </ul>
+</mat-toolbar>

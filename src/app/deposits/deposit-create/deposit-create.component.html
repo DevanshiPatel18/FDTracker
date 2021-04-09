@@ -1,0 +1,69 @@
+<div class="addDeposit">
+  <div class="spinner">
+    <mat-spinner *ngIf = 'loading'></mat-spinner>
+  </div>
+<mat-card>
+  <mat-card-title>Add a Deposit</mat-card-title>
+<form (submit) = 'onAddDeposit(depositForm)' *ngIf = '!loading' #depositForm = 'ngForm'>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label for="primaryHolder">Primary Holder</mat-label>
+      <input matInput name ="primaryHolder" type="text" [ngModel] = 'deposit?.primaryHolder' required>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label for="secondryHolder">Secondry Holder</mat-label>
+      <input matInput name ="secondryHolder" type="text" [ngModel] = 'deposit?.secondryHolder' required>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label for="depositId">Deposit Id</mat-label>
+      <input matInput name ="depositId" type="text" [ngModel] = 'deposit?.depositId' required>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label for="interestRate">Interest Rate</mat-label>
+      <input matInput name ="interestRate" type="number" [ngModel] = 'deposit?.interestRate' required>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label for="bank">Bank Name</mat-label>
+        <input matInput name ="bank" type="text" [ngModel] = 'deposit?.bank'  required>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label for="branch">Branch</mat-label>
+      <input matInput name ="branch" type="text" [ngModel] = 'deposit?.branch' required>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label for="amount">Amount</mat-label>
+      <input matInput name ="amount" type="number" [ngModel] = 'deposit?.amount'  required>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label for="tenure">Tenure</mat-label>
+      <input matInput name ="tenure" type="number" [ngModel] = 'deposit?.tenure' required>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-label for="date">Renewal Date</mat-label>
+      <input matInput name ="date" type="date" [ngModel] = 'deposit?.renewalDate' required>
+    </mat-form-field>
+  </div>
+  <!-- Add renewal History when you can-->
+  <div class="button">
+    <button type="submit" mat-raised-button color = "primary">Save Deposit</button>
+  </div>
+  <mat-error *ngIf = 'depositForm.invalid'>Marked Fields are Mandatory !</mat-error>
+</form>
+</mat-card>
+</div>

@@ -1,0 +1,56 @@
+<div class="deposit">
+  <div class="spinner">
+    <mat-spinner *ngIf = 'loading'></mat-spinner>
+  </div>
+    <div class="deposit-card container col-10 " *ngIf = 'deposits.length > 0'>
+  <mat-card class="justify-content-center col-10 col-md-5 col-lg-3"*ngFor = 'let deposit of deposits'>
+    <mat-card-header>
+      <mat-card-title>DepositId :{{ deposit.depositId }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table>
+        <tr>
+          <td>Name:</td>
+          <td>{{ deposit.primaryHolder}}</td>
+        </tr>
+        <tr>
+          <td>secondry Holder:</td>
+          <td>{{ deposit.secondryHolder}}</td>
+        </tr>
+        <tr>
+          <td>Amount:</td>
+          <td>{{ deposit.amount}}</td>
+        </tr><tr>
+          <td>Renewal Date:</td>
+          <td>{{ deposit.renewalDate}}</td>
+        </tr><tr>
+          <td>Interest Rate:</td>
+          <td>{{ deposit.interestRate}}</td>
+        </tr><tr>
+          <td>Bank:</td>
+          <td>{{ deposit.bank}}</td>
+        </tr><tr>
+          <td>Branch:</td>
+          <td>{{ deposit.branch}}</td>
+        </tr><tr>
+          <td>Tenure:</td>
+          <td>{{ deposit.tenure}}</td>
+        </tr><tr>
+          <td>Name:</td>
+          <td>{{ deposit.primaryHolder}}</td>
+        </tr>
+      </table>
+    </mat-card-content>
+    <mat-card-actions *ngIf = 'userIsAuthenticated && customerId === deposit.customerId'>
+      <button mat-button *ngIf = 'userIsAuthenticated' mat-raised-button color = "primary" [routerLink] = '["/edit",deposit.id]'>Edit</button>
+      <button  mat-button *ngIf = 'userIsAuthenticated' mat-raised-button color= "warn" (click) = 'onDelete(deposit.id)' >Delete</button>
+    </mat-card-actions>
+  </mat-card>
+  </div>
+  <p *ngIf = 'deposits.length <=0'>No deposit records</p>
+</div>
+<mat-paginator [length] = 'totalDeposits' [pageSize] = 'depositPerPage' [pageSizeOptions] = 'pageSizeOption' (page) = 'onChangedPage($event)' *ngIf = 'deposits.length > 0'>
+
+</mat-paginator>
+
+

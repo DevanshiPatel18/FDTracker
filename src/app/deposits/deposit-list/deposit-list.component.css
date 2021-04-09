@@ -1,0 +1,55 @@
+@import url('~bootstrap/dist/css/bootstrap.css');
+
+table{
+  width: 100%;
+}
+td{
+  padding-left: 2%;
+
+}
+
+.deposit{
+  display: flex;
+  justify-content: center;
+}
+.deposit-card{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1%;
+  width: 100%;
+}
+mat-card{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: inline-block;
+  width: 30%;
+  border: 2px solid indigo;
+  margin:2%
+}
+mat-card-content{
+  margin: auto;
+}
+mat-card-header, mat-card-actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 3%;
+}
+.spinner{
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 50%;
+  right: 50%;
+}
+mat-paginator{
+  margin-top: 1rem;
+}
+button{
+  padding: 1%;
+  border-radius: 10%;
+}
+@media screen {
+
+}
